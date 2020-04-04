@@ -24,7 +24,11 @@ node {
     stage('Maven build') {
         buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
     }
-
+    stage ('Build') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }          
+        }
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
