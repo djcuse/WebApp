@@ -5,7 +5,7 @@ node {
     // Create an Artifactory Maven instance.
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo
-    def summary = "${subject} (${env.BUILD_URL})"
+  
     
  rtMaven.tool = "maven"
 
@@ -28,6 +28,9 @@ node {
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
-   
+    stage ('Slack') {
+        // send build started notifications
+        slackSend (color: '#FFFF00')
+      }
     }
 	 
