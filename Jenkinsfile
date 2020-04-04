@@ -27,5 +27,8 @@ node {
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
+   stage("speak") {
+       slackSend color: '#BADA55', message: 'Hello, World!', channel: <devops>
+    }
     }
 	 
