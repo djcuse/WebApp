@@ -28,8 +28,6 @@ node {
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
-   stage("Slack") {
-       slackSend (color: '#FFFF00')
-    }
+   
     }
 	 
