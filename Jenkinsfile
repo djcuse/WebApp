@@ -28,7 +28,7 @@ node {
         server.publishBuildInfo buildInfo
     }
    stage("Slack") {
-       slackSend (color: colorCode, message: summary)
+       slackSend (message: summary)
     }
     }
 	 
