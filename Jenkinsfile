@@ -30,7 +30,9 @@ node {
     }
 	
  stage ('Test') {	
-        sh 'mvn -f functionaltest/pom.xml test'
+	 script{
+	 sh 'mvn -f functionaltest/pom.xml test'
+	 }
 	//rtMaven.run -B -f 'functionaltest/pom.xml', goals: 'test'
 	
         }	
