@@ -31,7 +31,7 @@ node {
 	
  stage ('Test') {	
             //sh "mvn -B -f  test"	
-	 rtMaven.run -B -f 'functionaltest/pom.xml' test
+	 bat "mvn -B -f 'functionaltest/pom.xml' test"
 	//sh "mvn -B -f test"
         }	
 	
