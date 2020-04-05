@@ -30,17 +30,7 @@ node {
     }
 	
 stage ('BlazeMeter test'){
-    blazeMeterTest(
-      jobApiKey:'8e4fc5fbd3d3793fdf1f1348edb55a31dd85f9bbbe3795f0d262bcfb7c207dce252264b9',
-      serverUrl:'https://a.blazemeter.com',
-      testId:'557620',
-      notes:'',
-      sessionProperties:'',
-      jtlPath:'',
-      junitPath:'',
-      getJtl:false,
-      getJunit:false
-    )
+    sh "curl https://a.blazemeter.com/api/v4/user --user 'a6f2c324779ef94e812483e0:b1204ff7ab3aca3b7626a5cda670dfb1abeb4462c96fa6ee5eb39d6c1b467cdb05354052'"
   }
 	
  stage ('Test') {	
