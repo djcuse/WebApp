@@ -31,7 +31,7 @@ node {
 	
 stage ('BlazeMeter test'){
     blazeMeterTest(
-      jobApiKey:'a6f2c324779ef94e812483e0',
+      jobApiKey:'8e4fc5fbd3d3793fdf1f1348edb55a31dd85f9bbbe3795f0d262bcfb7c207dce252264b9',
       serverUrl:'https://a.blazemeter.com',
       testId:'557620',
       notes:'',
