@@ -30,10 +30,9 @@ node {
     }
 	
  stage ('Test') {	
-            //sh "mvn -B -f  test"	
-	 //bat "mvn -B -f 'functionaltest/pom.xml' test"
-	rtMaven.run -B -f 'functionaltest/pom.xml', goals: 'test'
-	 //sh 'mvn -B -DskipTests clean package'
+        sh 'mvn -f functionaltest/pom.xml test'
+	//rtMaven.run -B -f 'functionaltest/pom.xml', goals: 'test'
+	
         }	
 	
     stage ('Slack') {
