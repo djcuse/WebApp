@@ -28,6 +28,11 @@ node {
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
+	
+ stage ('Test') {	
+            sh "mvn -B -f pom: 'pom.xml', goals: 'test'"	
+        }	
+	
     stage ('Slack') {
         // send build started notifications
        // slackSend (color: '#FFFF00')
