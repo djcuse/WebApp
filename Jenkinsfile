@@ -41,9 +41,9 @@ stage ('BlazeMeter test'){
 publishHTML([allowMissing: false, 
 		     alwaysLinkToLastBuild: false, 
 		     keepAll: true, 
-		     reportDir: "HTML Report Directory", 
+		     reportDir: "/var/lib/jenkins/workspace/functional-testing/functionaltest/target/surefire-reports", 
 		     reportFiles: 'functionaltest/target/surefire-reports', 
-		     reportName: 'HTML Report', reportTitles: ''])
+		     reportName: 'HTML Report', reportTitles: 'functional-testing'])
             }
 	
 	
