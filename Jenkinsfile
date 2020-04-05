@@ -32,8 +32,8 @@ node {
  stage ('Test') {	
             //sh "mvn -B -f  test"	
 	 //bat "mvn -B -f 'functionaltest/pom.xml' test"
-	//rtMaven.run pom: '/var/lib/jenkins/workspace/functional-testing/functionaltest/pom.xml', goals: 'test'
-	 sh 'mvn -B -DskipTests clean package'
+	rtMaven.run pom: './functionaltest/pom.xml', goals: 'test'
+	 //sh 'mvn -B -DskipTests clean package'
         }	
 	
     stage ('Slack') {
