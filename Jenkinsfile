@@ -36,8 +36,10 @@ stage ('BlazeMeter test'){
 }
 	
  stage ('Test') {	
-	 sh 'mvn -B -f functionaltest/pom.xml test'
+	  steps {
+                sh 'mvn -B -f functionaltest/pom.xml test'
 
+            }
 post {
                 always {
                     junit 'functionaltest/target/surefire-reports/*.xml'
