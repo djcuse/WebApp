@@ -30,8 +30,20 @@ node {
     }
 	
 stage ('BlazeMeter test'){
-    sh "curl https://a.blazemeter.com/api/v4/user --user 'a6f2c324779ef94e812483e0:b1204ff7ab3aca3b7626a5cda670dfb1abeb4462c96fa6ee5eb39d6c1b467cdb05354052'"
-  }
+	
+    //sh "curl https://a.blazemeter.com/api/v4/user --user 'a6f2c324779ef94e812483e0:b1204ff7ab3aca3b7626a5cda670dfb1abeb4462c96fa6ee5eb39d6c1b467cdb05354052'"
+  blazeMeterTest(
+      blazeMeterTest jobApiKey:'123fjghn68t63dv',
+      serverUrl:'https://a.blazemeter.com',
+      testId:'53841',
+      notes:'',
+      sessionProperties:'',
+      jtlPath:'',
+      junitPath:'',
+      getJtl:false,
+      getJunit:false
+    )
+}
 	
  stage ('Test') {	
 	 script{
