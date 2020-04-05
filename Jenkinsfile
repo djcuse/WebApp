@@ -33,7 +33,7 @@ stage ('BlazeMeter test'){
 	
     //sh "curl https://a.blazemeter.com/api/v4/user --user 'a6f2c324779ef94e812483e0:b1204ff7ab3aca3b7626a5cda670dfb1abeb4462c96fa6ee5eb39d6c1b467cdb05354052'"
   blazeMeterTest(
-      jobApiKey:'94d172a8ddc815ad84e6faa0',
+      jobApiKey:'b4903cc8f6b46a3f442502e2',
       serverUrl:'https://a.blazemeter.com',
       testId:'53841',
       notes:'',
