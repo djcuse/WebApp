@@ -38,14 +38,11 @@ stage ('BlazeMeter test'){
  stage ('Test') {	
 	 sh 'mvn -B -f functionaltest/pom.xml test'
 
-publishHTML (target: [
-      allowMissing: false,
-      alwaysLinkToLastBuild: false,
-      keepAll: true,
-      reportDir: '/functionaltest/target/surefire-reports',
-      reportFiles: 'index.html',
-      reportName: "RCov Report"
-    ])
+post {
+                always {
+                    junit 'functionaltest/target/surefire-reports/*.xml'
+                }
+            }
         }	
 	
     stage ('Slack') {
