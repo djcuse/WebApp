@@ -36,16 +36,18 @@ stage ('BlazeMeter test'){
 }
 	
  stage ('Test') {	
-	  steps {
+	 
                 sh 'mvn -B -f functionaltest/pom.xml test'
-
+publishHTML([allowMissing: false, 
+		     alwaysLinkToLastBuild: false, 
+		     keepAll: true, 
+		     reportDir: "HTML Report Directory", 
+		     reportFiles: 'functionaltest/target/surefire-reports', 
+		     reportName: 'HTML Report', reportTitles: ''])
             }
-post {
-                always {
-                    junit 'functionaltest/target/surefire-reports/*.xml'
-                }
-            }
-        }	
+	
+	
+	
 	
     stage ('Slack') {
         // send build started notifications
