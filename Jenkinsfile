@@ -50,5 +50,25 @@ publishHTML (target: [
        // slackSend (color: '#FFFF00')
 	  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")  
       }
+ stage ('BlazeMeter test'){
+    blazeMeterTest(
+      jobApiKey:'a6f2c324779ef94e812483e0',
+      serverUrl:'https://a.blazemeter.com',
+      testId:'557620',
+      notes:'',
+      sessionProperties:'',
+      jtlPath:'',
+      junitPath:'',
+      getJtl:false,
+      getJunit:false
+    )
+  }
+	
+	
+	
+	
+	
+	
+	
     }
 	 
