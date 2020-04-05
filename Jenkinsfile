@@ -25,9 +25,9 @@ node {
         buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
     }
     stage ('Test') {
-            steps {
-                sh "mvn -B -f pom: 'pom.xml', goals: 'test'"
-            }          
+           
+            sh "mvn -B -f pom: 'pom.xml', goals: 'test'"
+                  
         }
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
