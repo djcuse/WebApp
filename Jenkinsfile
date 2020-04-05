@@ -31,7 +31,7 @@ node {
 	
  stage ('Test') {	
             //sh "mvn -B -f  test"	
-	 rtMaven.run pom: 'pom.xml', goals: 'test'
+	 rtMaven.run pom: 'functionaltest/pom.xml', goals: 'test'
         }	
 	
     stage ('Slack') {
