@@ -26,7 +26,7 @@ node {
     }
     stage ('Test') {
             steps {
-                sh "mvn -B deploy"
+                sh "mvn -B -f 'pom.xml', goals: 'test'"
             }          
         }
     stage('Publish build info') {
