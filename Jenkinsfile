@@ -34,7 +34,15 @@ node {
 	 sh 'mvn -f functionaltest/pom.xml test'
 	 }
 	//rtMaven.run -B -f 'functionaltest/pom.xml', goals: 'test'
-	
+archive (includes: 'pkg/*.gem')
+publishHTML (target: [
+      allowMissing: false,
+      alwaysLinkToLastBuild: false,
+      keepAll: true,
+      reportDir: '/functionaltest/target/surefire-reports',
+      reportFiles: 'index.html',
+      reportName: "RCov Report"
+    ])
         }	
 	
     stage ('Slack') {
