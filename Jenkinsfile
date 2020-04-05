@@ -30,7 +30,7 @@ node {
     }
 	
  stage ('Test') {	
-            sh "mvn -B -f pom: 'pom.xml', goals: 'test'"	
+            sh "mvn -B -f /functionaltest/pom.xml goals: 'test'"	
         }	
 	
     stage ('Slack') {
