@@ -31,7 +31,7 @@ node {
 	
  stage ('Test') {	
 	 script{
-	 sh 'mvn -f functionaltest/pom.xml test'
+	 sh 'mvn -B -f functionaltest/pom.xml test'
 	 }
 	//rtMaven.run -B -f 'functionaltest/pom.xml', goals: 'test'
 archive (includes: 'pkg/*.gem')
