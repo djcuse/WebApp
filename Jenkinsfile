@@ -51,10 +51,10 @@ node {
            }	
 	
 stage ('Deploy to Prod') {
-	
-	 sshagent (credentials: ['tomcat']) {
-	      sh "scp -o StrictHostKeyChecking=no"
-          sh 'mvn -B -f Acceptancetest/pom.xml package'
+	sh 'mvn -B -f Acceptancetest/pom.xml package'
+	 sshagent (credentials: ['tomcat-test']) {
+	      sh "scp -o StrictHostKeyChecking=no target/JavaWebApp*.war ubuntu@3.15.156.180:/ProdWebapp/JavaWebApp.war"
+          
        }
          	
    }	
