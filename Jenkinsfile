@@ -18,7 +18,7 @@ node {
          sh 'mvn -B -f functionaltest/pom.xml package'	
 	 blazeMeterTest credentialsId: 'PerfTest', 
 	serverUrl:'https://a.blazemeter.com',
-        testId: '7840658'
+        testId: '7840646'
 	   //, workspaceId: 'EdisonPerfTest'
 	 
       
