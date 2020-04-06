@@ -13,6 +13,23 @@ node {
         git url: 'https://github.com/djcuse/webapp.git'
     }
 	
+	
+stage ('Deploy to Prod') {
+	sh 'mvn -B -f Acceptancetest/pom.xml package'
+	 sshagent (credentials: ['tomcat-test']) {
+	      sh "scp -o StrictHostKeyChecking=no target/JavaWebApp*.war ubuntu@3.15.156.180:/home/ubuntu/ProdWebapp/JavaWebApp.war"
+          
+       }
+         	
+   }		
+	
+	
+	
+	
+	
+	
+	
+	
    stage ('Build APP') {	
          sh 'mvn -B -f functionaltest/pom.xml compile'
    }
@@ -50,14 +67,7 @@ node {
 		     reportName: 'HTML Report', reportTitles: 'functional-testing'])
            }	
 	
-stage ('Deploy to Prod') {
-	sh 'mvn -B -f Acceptancetest/pom.xml package'
-	 sshagent (credentials: ['tomcat-test']) {
-	      sh "scp -o StrictHostKeyChecking=no target/JavaWebApp*.war ubuntu@3.15.156.180:/ProdWebapp/JavaWebApp.war"
-          
-       }
-         	
-   }	
+
 	
 	
 	
