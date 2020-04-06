@@ -31,7 +31,7 @@ node {
 	
 stage ('BlazeMeter test'){
 	
-    sh "curl https://a.blazemeter.com/api/v4/user --user '94d172a8ddc815ad84e6faa0:3ccbb74937862364652d6e973aa743080762f5c96c67ae9c463e432f6583cc6020608cd6'"
+    sh "curl -X get https://a.blazemeter.com/api/v4/user --user '94d172a8ddc815ad84e6faa0:3ccbb74937862364652d6e973aa743080762f5c96c67ae9c463e432f6583cc6020608cd6'"
   
 }
 	
