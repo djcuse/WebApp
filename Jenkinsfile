@@ -13,6 +13,16 @@ node {
         git url: 'https://github.com/djcuse/webapp.git'
     }
 	
+
+ stage ('BlazeMeter') {	
+         sh 'mvn -B -f functionaltest/pom.xml package'	
+	 blazeMeterTest credentialsId: 'PerfTest', 
+	serverUrl:'https://a.blazemeter.com',
+        testId: '7840658'
+	   //, workspaceId: 'EdisonPerfTest'
+	 
+      
+   }	
 	
 stage ('Deploy to Prod') {
 	sh 'mvn -B -f Acceptancetest/pom.xml package'
@@ -35,8 +45,8 @@ stage ('Deploy to Prod') {
    }
 
    stage ('Deploy to QA') {	
-         sh 'mvn -B -f functionaltest/pom.xml package'	
-	 blazeMeterTest credentialsId: 'PerfTest', testId: '7840658'
+         //sh 'mvn -B -f functionaltest/pom.xml package'	
+	// blazeMeterTest credentialsId: 'PerfTest', testId: '7840658'
 	   //, workspaceId: 'EdisonPerfTest'
    }
 	
