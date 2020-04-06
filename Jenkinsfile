@@ -12,8 +12,14 @@ node {
     stage('Clone sources') {
         git url: 'https://github.com/djcuse/webapp.git'
     }
+stage ('Sonar Publish') {
 	
-
+	withSonarQubeEnv(credentialsId: 'sonarnew') {
+    
+	sh" mvn -Dsonar.test.exclusions=**/test/java/servlet/createpage_junit.java -Dsonar.login=admin -Dsonar.password=admin -Dsonar.tests=. -Dsonar.inclusions=**/test/java/servlet/createpage_junit.java -Dsonar.sources=. sonar:sonar -Dsonar.host.url=http://devops-sonar-test.westus.cloudapp.azure.com"	
+	
+           }	
+  }
    stage ('Build App') {	
          sh 'mvn -B -f functionaltest/pom.xml compile'
    }
