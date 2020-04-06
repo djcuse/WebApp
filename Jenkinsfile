@@ -19,7 +19,7 @@ node {
 
    stage ('Deploy to QA') {	
          sh 'mvn -B -f functionaltest/pom.xml package'	
-	 blazeMeterTest credentialsId: 'PerfTest', testId: '7840646', workspaceId: '461101'
+	 blazeMeterTest credentialsId: 'PerfTest', testId: '7840658', workspaceId: 'EdisonPerfTest'
    }
 	
     stage('Artifactory configuration') {
