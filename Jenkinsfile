@@ -62,7 +62,7 @@ stage ('BlazeMeter') {
 stage ('Deploy to Prod') {
 	sh 'mvn -B -f Acceptancetest/pom.xml package'
 	 sshagent (credentials: ['tomcat-test']) {
-	      sh "scp -o StrictHostKeyChecking=no target/JavaWebApp*.war ubuntu@3.15.156.180:/home/ubuntu/ProdWebapp/JavaWebApp.war"
+	      sh "scp -o StrictHostKeyChecking=no target/JavaWebApp*.war ubuntu@3.16.30.55:/home/ubuntu/ProdWebapp/JavaWebApp.war"
           
        }
          	
