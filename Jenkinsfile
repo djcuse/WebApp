@@ -12,7 +12,15 @@ node {
     stage('Clone sources') {
         git url: 'https://github.com/djcuse/webapp.git'
     }
+	
+   stage ('Build APP') {	
+         sh 'mvn -B -f functionaltest/pom.xml compile'
+   }
 
+   stage ('Deploy to QA') {	
+         sh 'mvn -B -f functionaltest/pom.xml package'	
+   }
+	
     stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
         rtMaven.tool = "maven"
@@ -28,23 +36,36 @@ node {
     stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
-	
-stage ('BlazeMeter test'){
-	
-    sh "curl -X get https://a.blazemeter.com/api/v4/user --user '94d172a8ddc815ad84e6faa0:3ccbb74937862364652d6e973aa743080762f5c96c67ae9c463e432f6583cc6020608cd6'"
-  
-}
-	
- stage ('Test') {	
+
+    stage ('Test QA') {	
 	 
-                sh 'mvn -B -f functionaltest/pom.xml test'
-publishHTML([allowMissing: false, 
+          sh 'mvn -B -f functionaltest/pom.xml test'
+           publishHTML([allowMissing: false, 
 		     alwaysLinkToLastBuild: false, 
 		     keepAll: true, 
 		     reportDir: "/var/lib/jenkins/workspace/functional-testing/functionaltest/target/surefire-reports", 
 		     reportFiles: 'index.html', 
 		     reportName: 'HTML Report', reportTitles: 'functional-testing'])
-            }
+           }	
+	
+stage ('Deploy to Prod') {	
+         sh 'mvn -B -f Acceptancetest/pom.xml package'	
+   }	
+	
+	
+	
+	
+	
+	
+	
+//stage ('BlazeMeter test'){	
+ //   sh "curl -X get https://a.blazemeter.com/api/v4/user --user '94d172a8ddc815ad84e6faa0:3ccbb74937862364652d6e973aa743080762f5c96c67ae9c463e432f6583cc6020608cd6'"
+//}
+	
+
+	
+	
+ 
 	
 	
 	
