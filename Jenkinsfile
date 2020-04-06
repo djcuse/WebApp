@@ -65,9 +65,8 @@ stage ('BlazeMeter') {
 	   //   sh "scp -o StrictHostKeyChecking=no target/JavaWebApp*.war ubuntu@3.16.30.55:/home/ubuntu/ProdWebapp/JavaWebApp.war"
           
      //  }
-         	
-	
-   }		
+    		
+   //}		
     stage ('Slack') {
         // send build started notifications
        // slackSend (color: '#FFFF00')
