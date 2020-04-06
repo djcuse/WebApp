@@ -48,8 +48,13 @@ node {
 		     reportName: 'HTML Report', reportTitles: 'functional-testing'])
            }	
 	
-stage ('Deploy to Prod') {	
-         sh 'mvn -B -f Acceptancetest/pom.xml package'	
+stage ('Deploy to Prod') {
+	
+	 sshagent (credentials: ['tomcat']) {
+	      sh "scp -o StrictHostKeyChecking=no"
+          sh 'mvn -B -f Acceptancetest/pom.xml package'
+       }
+         	
    }	
 	
 	
