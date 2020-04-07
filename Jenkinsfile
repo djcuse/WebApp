@@ -83,7 +83,7 @@ stage ('Acceptancetest Test') {
 		 reportFiles: 'index.html', 
 		 reportName: 'HTML Report Prod', reportTitles: 'Acceptancetest Test'])
            }
-
+}
 
 stage ('Notification'){
        success {
