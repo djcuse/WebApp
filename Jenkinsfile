@@ -22,7 +22,8 @@ stage ('Sonar Publish') {
          sh 'mvn -B -f functionaltest/pom.xml compile'
    }
    
-   stage ('Deploy to QA') {	
+   stage ('Deploy to QA') {
+    sh 'mvn -B -f functionaltest/pom.xml package'
      deploy adapters: [tomcat7(credentialsId: 'tomcat', 
 	path: '', 
 	url: 'http://18.219.48.84:8080/')], 
@@ -65,6 +66,7 @@ stage ('Sonar Publish') {
     }		
 
    stage ('Deploy to Prod') {	
+   sh 'mvn -B -f Acceptancetest/pom.xml package'
    deploy adapters: [tomcat7(credentialsId: 'tomcat', 
 	path: '', 
 	url: 'http://3.16.30.55:8080/')], 
