@@ -91,5 +91,5 @@ stage ('Notification'){
       	 // jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
        }
     }
-
+}
 	
