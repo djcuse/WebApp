@@ -55,7 +55,7 @@ stage ('Sonar Publish') {
 		     keepAll: true, 
 		     reportDir: "\\functionaltest\\target\\surefire-reports", 
 		     reportFiles: 'index.html', 
-		     reportName: 'HTML Report', reportTitles: 'functional-testing'])
+		     reportName: 'HTML Report QA', reportTitles: 'functional-testing'])
            }	
 	
 
@@ -81,7 +81,7 @@ stage ('Acceptancetest Test') {
 		 keepAll: false, 
 		 reportDir: '\\Acceptancetest\\target\\surefire-reports', 
 		 reportFiles: 'index.html', 
-		 reportName: 'HTML Report', reportTitles: 'Acceptancetest Test'])
+		 reportName: 'HTML Report Prod', reportTitles: 'Acceptancetest Test'])
            }
 	
    
