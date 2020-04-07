@@ -7,7 +7,6 @@ node {
   
     
  rtMaven.tool = "maven"
-stages {
 	
     stage('Clone sources') {
         git url: 'https://github.com/djcuse/webapp.git'
@@ -91,5 +90,5 @@ stage ('Notification'){
       	 // jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
        }
     }
-}
+
 	
