@@ -86,7 +86,7 @@ stage ('Acceptancetest Test') {
 
 stage ('Notification'){
 	  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")  
-      	 // jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
+      	 jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
     }
 
 	
