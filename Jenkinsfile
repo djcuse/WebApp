@@ -84,14 +84,12 @@ stage ('Acceptancetest Test') {
 		 reportName: 'HTML Report', reportTitles: 'Acceptancetest Test'])
            }
 	
-
-    stage ('Slack') {
-        // send build started notifications
-       // slackSend (color: '#FFFF00')
+   
+    }
+post {
+       success {
 	  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")  
-      }
-
-
-	
+      	  jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
+       }
     }
 	 
