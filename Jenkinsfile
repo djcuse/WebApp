@@ -1,5 +1,4 @@
-
-Pipeline {
+node {
     // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
     def server = Artifactory.server "deploy"
     // Create an Artifactory Maven instance.
@@ -84,7 +83,7 @@ stage ('Acceptancetest Test') {
 		 reportFiles: 'index.html', 
 		 reportName: 'HTML Report Prod', reportTitles: 'Acceptancetest Test'])
            }
-}
+
 
 post {
        success {
@@ -92,5 +91,5 @@ post {
       	 // jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
        }
     }
-}
+
 	
