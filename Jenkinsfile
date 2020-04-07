@@ -64,7 +64,6 @@ stage ('Sonar Publish') {
        testId: '7840646',
        workspaceId: '461101'
     }		
-
    stage ('Deploy to Prod') {	
    sh 'mvn -B -f Acceptancetest/pom.xml package'
    deploy adapters: [tomcat7(credentialsId: 'tomcat', 
