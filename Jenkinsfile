@@ -58,12 +58,12 @@ stage ('Sonar Publish') {
            }	
 	
 
-   //stage ('Perf Test Blaze') {		
-	// blazeMeterTest credentialsId: 'PerfTest', 
-	//serverUrl:'https://a.blazemeter.com',
-       // testId: '7840646',
-       // workspaceId: '461101'
-   // }		
+   stage ('Perf Test Blaze') {		
+	 blazeMeterTest credentialsId: 'PerfTest', 
+	serverUrl:'https://a.blazemeter.com',
+       testId: '7840646',
+       workspaceId: '461101'
+    }		
 
 	
    stage ('Deploy to Prod') {	
