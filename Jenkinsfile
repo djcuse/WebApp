@@ -8,7 +8,8 @@ node {
   
     
  rtMaven.tool = "maven"
-
+stages {
+	
     stage('Clone sources') {
         git url: 'https://github.com/djcuse/webapp.git'
     }
@@ -83,12 +84,13 @@ stage ('Acceptancetest Test') {
 		 reportFiles: 'index.html', 
 		 reportName: 'HTML Report Prod', reportTitles: 'Acceptancetest Test'])
            }
+}
 
 post {
        success {
 	  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")  
-      	  jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
+      	 // jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
        }
     }
 }
-	 
+	
