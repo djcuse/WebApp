@@ -64,7 +64,6 @@ stage ('Sonar Publish') {
        workspaceId: '461101'
     }		
 
-	
    stage ('Deploy to Prod') {	
    deploy adapters: [tomcat7(credentialsId: 'tomcat', 
 	path: '', 
