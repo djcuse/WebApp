@@ -1,5 +1,5 @@
 
-node {
+Pipeline {
     // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
     def server = Artifactory.server "deploy"
     // Create an Artifactory Maven instance.
