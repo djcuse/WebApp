@@ -5,7 +5,6 @@ node {
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo
   
-    
  rtMaven.tool = "maven"
 	
     stage('Clone sources') {
@@ -88,5 +87,3 @@ stage ('Notification'){
 	  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")  
       	 jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
     }
-
-	
