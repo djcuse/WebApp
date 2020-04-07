@@ -92,4 +92,5 @@ post {
       	  jiraIssueSelector(issueSelector: [$class: 'DefaultIssueSelector'])
        }
     }
+}
 	 
