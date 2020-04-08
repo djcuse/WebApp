@@ -24,11 +24,11 @@ stage ('Sonar Publish') {
    
    stage ('Deploy to QA') {
     sh 'mvn -B -f functionaltest/pom.xml package'
-   //  deploy adapters: [tomcat7(credentialsId: 'tomcat', 
-	//path: '', 
-	//url: 'http://18.219.48.84:8080/')], 
-	//contextPath: '/QAWebapp', 
-	//war: '**/*.war'	
+     deploy adapters: [tomcat7(credentialsId: 'tomcat', 
+	path: '', 
+	url: 'http://18.219.48.84:8080/')], 
+	contextPath: '/QAWebapp', 
+	war: '**/*.war'	
    }
 		
     stage('Artifactory configuration') {
